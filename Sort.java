@@ -29,7 +29,8 @@ public class Sort{
         
 
         //selectionSort(artists);
-        insertionsSort(artists);
+        //insertionsSort(artists);
+        bubbleSort(artists);
         System.out.println(artists.toString());
     }
 
@@ -82,6 +83,19 @@ public class Sort{
     }
 
     public static void bubbleSort(ArrayList<String> list){
+        boolean noSwaps = false;
+        while(!noSwaps){
+            noSwaps = true;
 
+            for(int i = 0; i < list.size()-1; i++){
+                if(list.get(i+1).compareToIgnoreCase(list.get(i)) < 0){
+                    String temp = list.get(i);
+                    list.set(i, list.get(i+1));
+                    list.set(i+1, temp);
+                    noSwaps = false;
+                }
+            }
+
+        }
     }
 }
