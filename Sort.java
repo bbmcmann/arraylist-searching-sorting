@@ -28,8 +28,8 @@ public class Sort{
         
         
 
-        selectionSort(artists);
-
+        //selectionSort(artists);
+        insertionsSort(artists);
         System.out.println(artists.toString());
     }
 
@@ -54,7 +54,31 @@ public class Sort{
     }
 
     public static void insertionsSort(ArrayList<String> list){
+        for(int i = 1; i < list.size(); i++){
 
+            if(list.get(i).compareToIgnoreCase(list.get(i-1)) < 0){
+
+                String temp = list.get(i);
+                list.set(i, list.get(i-1));
+                list.set(i-1, temp);
+
+                for(int j = i-1; j > 0; j--){
+
+                    if(list.get(j).compareToIgnoreCase(list.get(j-1)) < 0){
+                        String temp2 = list.get(j);
+                        list.set(j, list.get(j-1));
+                        list.set(j-1, temp2);
+
+                    }
+                    else{
+                        break;
+                    }
+
+                }
+
+            }
+
+        }
     }
 
     public static void bubbleSort(ArrayList<String> list){
